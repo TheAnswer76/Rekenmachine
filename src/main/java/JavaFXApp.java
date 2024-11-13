@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
 import static javafx.scene.input.KeyEvent.KEY_PRESSED;
 import static javafx.scene.input.MouseEvent.MOUSE_CLICKED;
@@ -25,7 +26,7 @@ public class `JavaFXApp extends Application {
     private static final String MULTIPLY = "*";
     private static final String DIVIDE = "/";
 
-    private int getNumberFromTextField (TextField textField) {
+    private int getNumberFromTextField (@NotNull TextField textField) {
         return Integer.parseInt (textField.getText ());
     }
 
@@ -38,8 +39,12 @@ public class `JavaFXApp extends Application {
     }
 
     protected int computeDivide (int number1, int number2) {
-        return 0;
-    }
+        if (number1 != 0 && number2 != 0) {
+        return (number1 / number2);
+        }else{
+            return 0;
+            }
+        }
 
     private void compute (String operator) {
 
